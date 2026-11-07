@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<link id="ati" rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmE5MTY2YWI4LWFhMmYtNDRhMS1hM2ZhLWY3YTk1ZjJhMWNhOAAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNo4nTkYX4Ou+hbpCCcYM76jwAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6YmMyZDkyZWQtYjI0Yi00NzAwLWFmYjMtZTFhN2VjMDc5NzJmbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaKZSwqq6NNrnLCrf3UXJbloAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIIeIBKP56dRI7zRyPNWtJr+HaDUXYEZnW/DpidLeUP/XpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2ga2JeqLmd929yJZ3TR0tuRAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggVMCbei9iOGObn9jEVPCRyJq3nTQ5wpJ89DQnM8EcGSJkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTphOTE2NmFiOC1hYTJmLTQ0YTEtYTNmYS1mN2E5NWYyYTFjYTgvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDozMmZhNjY3Yi00MDc3LTQyNjUtYjQ2YS1lOTYwYTc5MDEwYzRyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggh4gEo/np1EjvNHI81a0mv4doNRdgRmdb8OmJ0t5Q/9eiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIJtlCoJOy595KDqRRpc+BhnkXGAf2l33eAgTk4ti/CBgomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIKEvnv7RRvhBDYYsYBJLypm3yGrLHw8gNjvKvqTZEpkUdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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">
+<title>Dashboard Pemupukan Cap Pak Tani (Tangki 16L) · Baheula Tani Nusantara</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{
+  --black:#050505; --panel:#0e0c0a; --panel2:#17120d; --line:#3a2d12;
+  --gold:#d4af37; --gold-hi:#fff1b0; --gold-lo:#8a6a14;
+  --red:#c8102e; --red-hi:#ff2d4d; --red-lo:#6e0617;
+  --text:#efe6d0; --muted:#a89a7a;
+  --goldgrad:linear-gradient(135deg,#8a6a14 0%,#d4af37 28%,#fff1b0 50%,#d4af37 72%,#8a6a14 100%);
+  --redgrad:linear-gradient(135deg,#6e0617,#c8102e 50%,#ff2d4d);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;background:var(--black);color:var(--text);line-height:1.6;
+  background-image:radial-gradient(ellipse at top,#2a0a0f 0,transparent 55%)}
+.gold-text{background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+
+/* Header */
+header{text-align:center;padding:2.2rem 1rem 1.6rem;border-bottom:3px solid transparent;border-image:var(--goldgrad) 1;
+  background:linear-gradient(180deg,#1d0509,#050505)}
+header h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.5rem,5vw,2.3rem);letter-spacing:.5px}
+header h1 i{color:var(--red-hi);-webkit-text-fill-color:var(--red-hi)}
+header p{color:var(--muted);font-size:.95rem;margin-top:.3rem}
+
+.container{max-width:1200px;margin:1.5rem auto;padding:0 1rem}
+
+/* Panel umum */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.3rem;margin-bottom:1.5rem;
+  box-shadow:0 0 0 1px #000 inset,0 8px 24px rgba(0,0,0,.6)}
+.tracker-grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media(min-width:768px){.tracker-grid{grid-template-columns:1fr 1fr}}
+.card h3{color:var(--gold);display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem;font-size:1.05rem}
+.badge-days{display:inline-block;background:var(--redgrad);color:#fff;padding:.2rem .8rem;border-radius:50px;font-weight:700;font-size:.9rem;margin-top:.4rem}
+.hint{font-size:.82rem;color:var(--muted);margin-top:.3rem}
+.input-group{display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap}
+input,select,textarea{background:#000;color:var(--text);border:1px solid var(--gold-lo);border-radius:6px;padding:.6rem;font-size:1rem;font-family:inherit;min-width:0}
+input:focus,select:focus,textarea:focus,.btn:focus-visible,.bar-btn:focus-visible{outline:2px solid var(--red-hi);outline-offset:2px}
+input[type=date]{color-scheme:dark;flex:1}
+.btn{background:var(--redgrad);color:#fff;border:1px solid var(--red-hi);padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:700;transition:.2s}
+.btn:hover{filter:brightness(1.2);box-shadow:0 0 14px rgba(255,45,77,.5)}
+.btn.gold{background:var(--goldgrad);color:#1a1200;border-color:var(--gold-hi)}
+.btn.small{padding:.3rem .7rem;font-size:.8rem}
+#hst-result{margin-top:.5rem;font-weight:700;color:var(--gold-hi)}
+
+.quick-ref{border:1px solid var(--gold-lo);border-left:5px solid var(--gold);background:var(--panel2);padding:1rem;border-radius:8px;margin-bottom:1.5rem}
+.quick-ref strong{color:var(--gold)}
+.quick-ref ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.5rem;margin-top:.5rem;font-size:.9rem}
+.dosis{background:#2b0a10;color:var(--gold-hi);border:1px solid var(--red);font-weight:700;padding:.15rem .5rem;border-radius:4px;display:inline-block}
+
+/* BAR HORIZONTAL (geser ke kanan) */
+.bars-wrap{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,#000 80%,transparent);padding:.6rem 0 .4rem;margin-bottom:1rem}
+.bars-title{font-size:.95rem;font-weight:700;margin:0 0 .4rem .2rem}
+.swipe{font-size:.75rem;color:var(--muted);-webkit-text-fill-color:var(--muted);font-weight:400}
+.bars{display:flex;flex-direction:row;gap:.5rem;overflow-x:auto;scroll-snap-type:x proximity;padding:.2rem .1rem .6rem;scrollbar-width:thin;scrollbar-color:var(--gold-lo) #000;-webkit-overflow-scrolling:touch}
+.bars::-webkit-scrollbar{height:6px}.bars::-webkit-scrollbar-thumb{background:var(--gold-lo);border-radius:6px}
+.bar-btn{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;gap:.55rem;white-space:nowrap;cursor:pointer;
+  background:linear-gradient(180deg,var(--panel2),var(--panel));color:var(--text);
+  border:1px solid var(--line);border-bottom:4px solid var(--gold-lo);border-radius:10px;padding:.7rem 1.1rem;font-size:.98rem;font-weight:600;transition:.2s}
+.bar-btn i.ic{color:var(--gold)}
+.bar-btn:hover{border-bottom-color:var(--red-hi);transform:translateY(-2px)}
+.bar-btn.active{background:linear-gradient(180deg,var(--red),var(--red-lo));border-color:var(--gold);border-bottom:4px solid var(--gold-hi);color:var(--gold-hi);box-shadow:0 0 16px rgba(200,16,46,.45)}
+.bar-btn.active i.ic{color:var(--gold-hi)}
+.bar-btn.kasbon{background:var(--goldgrad);color:#1a1200;border-color:var(--gold-hi);border-bottom-color:var(--red);font-weight:800}
+.bar-btn.kasbon i.ic{color:var(--red)}
+.bar-btn.kasbon.active{background:var(--redgrad);color:#fff;border-bottom-color:var(--gold-hi)}
+.bar-btn.kasbon.active i.ic{color:var(--gold-hi)}
+
+/* BROSUR */
+.brosur{border:2px solid var(--gold);border-radius:12px;overflow:hidden;background:#000}
+.b-hero{padding:1.6rem 1.3rem;text-align:center;background:radial-gradient(ellipse at top,var(--red) 0,var(--red-lo) 45%,#120206 100%);border-bottom:3px solid var(--gold)}
+.b-hero .big{font-size:2.6rem;color:var(--gold-hi);filter:drop-shadow(0 0 10px rgba(255,215,90,.5))}
+.b-hero h2{font-family:Georgia,serif;font-size:clamp(1.6rem,6vw,2.4rem);margin:.2rem 0}
+.b-hero p{color:#f4dfc0;max-width:620px;margin:.4rem auto 0;font-size:.95rem}
+.b-hero .meta{justify-content:center;margin:.9rem 0 0}
+.b-panels{display:grid;grid-template-columns:1fr}
+@media(min-width:760px){.b-panels{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+.b-panel{padding:1.2rem 1.1rem;border-bottom:1px dashed var(--gold-lo);background:linear-gradient(180deg,var(--panel2),#080605)}
+@media(min-width:760px){.b-panel{border-bottom:0;border-right:1px dashed var(--gold-lo)}.b-panel:last-child{border-right:0}}
+.b-fase{display:inline-block;background:var(--goldgrad);color:#1a1200;font-weight:800;font-size:.85rem;padding:.25rem .8rem;border-radius:4px 14px 14px 4px;margin-bottom:.7rem}
+.b-prod{font-family:Georgia,serif;font-size:1.15rem;color:var(--gold-hi);margin-bottom:.5rem}
+.b-label{font-size:.78rem;color:var(--red-hi);font-weight:700;margin-top:.7rem}
+.b-dosis{margin-top:.2rem;line-height:2}
+.b-cara{font-size:.92rem;margin-top:.2rem}
+.b-cara strong{color:var(--gold-hi)}
+.b-foot{padding:.9rem 1.2rem;background:var(--red-lo);border-top:3px solid var(--gold);font-size:.92rem}
+.b-foot h4{color:var(--gold-hi);margin-bottom:.2rem}
+
+/* Konten */
+.content-area{margin-bottom:1.5rem;scroll-margin-top:150px;border:1px solid var(--line);border-top:3px solid var(--gold);background:var(--panel);border-radius:10px;padding:1.5rem;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.section{display:none}.section.active{display:block}
+.sec-head{display:flex;align-items:center;gap:.75rem;border-bottom:2px solid var(--red);padding-bottom:.5rem;margin-bottom:1rem}
+.sec-head i{font-size:1.7rem;color:var(--red-hi)}
+.sec-head h2{font-family:Georgia,serif;font-size:1.7rem;background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem}
+.meta span{background:var(--panel2);border:1px solid var(--gold-lo);color:var(--gold-hi);padding:.35rem .7rem;border-radius:6px;font-size:.85rem}
+.meta span i{color:var(--red-hi);margin-right:.3rem}
+.tbl{overflow-x:auto;margin:1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.93rem;min-width:560px}
+th,td{padding:.7rem .9rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--goldgrad);color:#1a1200;font-weight:800}
+tbody tr:hover{background:#1c0a0d}
+td strong{color:var(--gold-hi)}
+td b{color:var(--red-hi)}
+.note{background:#1a0a0d;border-left:4px solid var(--red-hi);padding:1rem;border-radius:6px;margin-top:1rem;font-size:.92rem}
+.note h4{color:var(--gold);margin-bottom:.25rem}
+.note ul{margin:.5rem 0 0 1.4rem}
+.dasar h3{color:var(--gold);margin-bottom:.4rem}
+
+/* Kasbon */
+.k-form{display:grid;gap:.7rem;grid-template-columns:1fr}
+@media(min-width:700px){.k-form{grid-template-columns:1fr 1fr}.k-form .full{grid-column:1/-1}}
+.k-form label{display:block;font-size:.82rem;color:var(--gold);margin-bottom:.2rem}
+.k-form input,.k-form select,.k-form textarea{width:100%}
+.k-sum{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:1.2rem 0}
+.k-sum div{background:var(--panel2);border:1px solid var(--gold-lo);border-radius:8px;padding:.8rem}
+.k-sum small{color:var(--muted);display:block}
+.k-sum b{font-size:1.25rem;color:var(--gold-hi)}
+.k-sum .red b{color:var(--red-hi)}
+.st{padding:.15rem .6rem;border-radius:50px;font-size:.78rem;font-weight:700;border:0;cursor:pointer}
+.st.belum{background:var(--red);color:#fff}.st.lunas{background:var(--gold);color:#1a1200}
+.empty{text-align:center;color:var(--muted);padding:1.2rem}
+.right{text-align:right}
+
+
+/* GRUP & RAPI */
+.groups{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.5rem}
+.grp-btn{cursor:pointer;background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:.55rem .3rem;font-size:.85rem;font-weight:700;transition:.2s;display:flex;flex-direction:column;align-items:center;gap:.15rem}
+.grp-btn i{font-size:1.05rem;color:var(--gold-lo)}
+.grp-btn.active{background:var(--goldgrad);color:#1a1200;border-color:var(--gold-hi)}
+.grp-btn.active i{color:var(--red)}
+@media(min-width:600px){.grp-btn{flex-direction:row;justify-content:center;gap:.5rem;font-size:.95rem}}
+.sub{color:var(--gold);font-size:1rem;margin:1.2rem 0 .5rem;padding-left:.6rem;border-left:4px solid var(--red)}
+.sub:first-child{margin-top:0}
+.jd-grid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.jd-card{background:var(--panel2);border:1px solid var(--gold-lo);border-top:4px solid var(--red);border-radius:8px;padding:.9rem}
+.jd-card h4{color:var(--gold-hi);display:flex;justify-content:space-between;gap:.5rem;align-items:center}
+.jd-card small{color:var(--muted)}
+.chip{display:inline-block;padding:.12rem .6rem;border-radius:50px;font-size:.78rem;font-weight:700;background:var(--goldgrad);color:#1a1200}
+.chip.red{background:var(--redgrad);color:#fff}
+.jd-step{margin-top:.5rem;font-size:.9rem;border-top:1px dashed var(--line);padding-top:.5rem}
+details.hm{border:1px solid var(--gold-lo);border-radius:8px;margin-bottom:.6rem;background:var(--panel2);overflow:hidden}
+details.hm summary{cursor:pointer;padding:.8rem 1rem;font-weight:700;color:var(--gold-hi);list-style:none;display:flex;align-items:center;gap:.6rem}
+details.hm summary::-webkit-details-marker{display:none}
+details.hm summary i{color:var(--red-hi)}
+details.hm[open] summary{background:var(--red-lo);border-bottom:2px solid var(--gold)}
+.hm-item{padding:.7rem 1rem;border-bottom:1px dashed var(--line);font-size:.92rem}
+.hm-item:last-child{border-bottom:0}
+.hm-item b{color:var(--red-hi)}
+.hm-item strong{color:var(--gold-hi)}
+.pct{width:80px;text-align:right}
+.chk{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;font-size:.92rem}
+.chk input{width:auto}
+.data-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.data-grid .card{margin:0}
+.data-grid .btn{margin:.25rem .25rem .25rem 0}
+.neg{color:var(--red-hi)!important}
+.low{background:#2b0a10}
+#lock{position:fixed;inset:0;z-index:999;background:radial-gradient(ellipse at top,#3a0a12,#000 70%);display:none;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;padding:1.5rem;text-align:center}
+#lock.show{display:flex}
+#lock h2{font-family:Georgia,serif;font-size:1.6rem}
+#lock input{text-align:center;font-size:1.4rem;letter-spacing:.5rem;width:min(260px,80vw)}
+#lock .err{color:var(--red-hi);min-height:1.3rem;font-weight:700}
+
+/* v4 */
+.act{white-space:nowrap}.act .btn{margin:0 .15rem .2rem 0}
+.fbar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.8rem 0 .2rem;font-size:.85rem;color:var(--muted)}
+.fbar input{padding:.45rem;font-size:.9rem}.fbar .fq{flex:1;min-width:150px}.fbar input[type=date]{color-scheme:dark}
+#modal{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;padding:1rem}
+#modal.show{display:flex}
+#md-box{background:var(--panel);border:2px solid var(--gold);border-top:5px solid var(--red);border-radius:12px;padding:1.2rem;width:min(460px,100%);max-height:90vh;overflow:auto}
+#md-box h3{color:var(--gold-hi);margin-bottom:.8rem}
+#md-form{display:grid;gap:.7rem}
+#md-form label{display:block;font-size:.82rem;color:var(--gold);margin-bottom:.2rem}
+#md-form input,#md-form select{width:100%}
+#md-extra{margin-top:.8rem;font-size:.85rem}
+#md-extra div{display:flex;justify-content:space-between;align-items:center;gap:.5rem;border-bottom:1px dashed var(--line);padding:.3rem 0}
+.md-act{display:flex;gap:.5rem;justify-content:flex-end;margin-top:1rem}
+.gb{display:grid;grid-template-columns:105px 1fr auto;gap:.5rem;align-items:center;margin:.35rem 0;font-size:.86rem}
+.gt{background:#000;border:1px solid var(--line);border-radius:6px;height:16px;overflow:hidden}
+.gf{height:100%;background:var(--goldgrad);min-width:2px}.gf.r{background:var(--redgrad)}
+.gm{margin:.9rem 0 .2rem;display:flex;justify-content:space-between;color:var(--gold-hi);font-weight:700;font-size:.9rem;border-top:1px dashed var(--line);padding-top:.5rem}
+.cw-grid{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fill,minmax(98px,1fr))}
+.cw{background:var(--panel2);border:1px solid var(--gold-lo);border-radius:8px;padding:.6rem .4rem;text-align:center;font-size:.78rem}
+.cw i{font-size:1.5rem;color:var(--gold);margin:.25rem 0}.cw b{display:block;color:var(--gold-hi)}
+.cw.rain i{color:#7ec8ff}
+#c-tip{margin-bottom:.7rem}
+#nota{display:none}
+@media print{
+ body{background:#fff!important;color:#000!important}
+ header,.bars-wrap,.k-form,.fbar,.btn,.act,#lock,#modal,footer,.hint,.sec-head i{display:none!important}
+ .content-area,.card,.jd-card{border:1px solid #999!important;background:#fff!important;box-shadow:none!important}
+ .section:not(.active){display:none!important}
+ th{background:#ddd!important;color:#000!important}
+ td,th,.sub,h2,h3,b,strong,small,.k-sum *,.dosis{color:#000!important;-webkit-text-fill-color:#000!important;background:none!important}
+ body.nota-mode>*:not(#nota){display:none!important}
+ body.nota-mode #nota{display:block!important;color:#000;background:#fff;font-family:Georgia,serif;padding:1.5cm}
+ #nota h1{text-align:center;font-size:1.5rem;border-bottom:3px double #000;padding-bottom:.4rem}
+ #nota .no{text-align:center;margin:.4rem 0 1rem}
+ #nota table{width:100%;min-width:0;border-collapse:collapse}
+ #nota td{padding:.4rem .2rem;border-bottom:1px dotted #777}
+ #nota td:first-child{width:38%;font-weight:700}
+ #nota .sig{display:flex;justify-content:space-around;margin-top:2.5rem;text-align:center}
+ #nota .by{text-align:center;margin-top:2rem;font-size:.8rem;border-top:1px solid #000;padding-top:.4rem}
+}
+footer{text-align:center;padding:2rem 1rem;margin-top:3rem;background:#000;border-top:3px solid transparent;border-image:var(--goldgrad) 1;font-size:.85rem;color:var(--muted)}
+footer .by{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;margin-top:.5rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="modal"><div id="md-box"><h3 id="md-title"></h3><div id="md-form"></div><div id="md-extra"></div>
+ <div class="md-act"><button class="btn gold" onclick="closeModal()">Batal</button><button class="btn" onclick="saveModal()">Simpan</button></div></div></div>
+<div id="nota"></div>
+<div id="lock"><i class="fa-solid fa-lock gold-text" style="font-size:2.4rem;-webkit-text-fill-color:var(--gold)"></i>
+ <h2 class="gold-text">Dashboard Terkunci</h2><p class="hint">Masukkan PIN untuk membuka</p>
+ <input type="password" id="lock-pin" inputmode="numeric" maxlength="8" autocomplete="off" aria-label="PIN">
+ <div class="err" id="lock-err"></div><button class="btn" onclick="tryUnlock()"><i class="fa-solid fa-unlock"></i> Buka</button>
+ <p class="by gold-text" style="font-family:Georgia,serif;margin-top:1rem">by Baheula Tani Nusantara (MLv)</p></div>
+
+<header>
+  <h1 class="gold-text"><i class="fa-solid fa-leaf"></i> Dashboard Pemupukan Cap Pak Tani</h1>
+  <p>Panduan interval &amp; aplikasi khusus tangki semprot 16 liter</p>
+</header>
+
+<div class="container">
+
+  <div class="bars-wrap">
+    <div class="groups" id="groups"></div>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <div class="content-area" id="content"></div>
+
+
+  <div class="card" id="tracker-card">
+    <div class="tracker-grid">
+      <div>
+        <h3><i class="fa-solid fa-plane-arrival"></i> Log Kalimantan Tengah</h3>
+        <p>Status kehadiran Anda: <span class="badge-days" id="arrival-days">Menghitung...</span></p>
+        <p class="hint">Diperbarui otomatis berdasarkan tanggal kedatangan (1 November 2026).</p>
+      </div>
+      <div>
+        <h3><i class="fa-solid fa-calendar-check"></i> Kalkulator Hari Setelah Tanam (HST)</h3>
+        <p>Pilih tanggal tanam untuk melihat umur tanaman hari ini:</p>
+        <div class="input-group">
+          <input type="date" id="plant-date" aria-label="Tanggal tanam">
+          <button class="btn" onclick="calculateHST()">Hitung HST</button>
+        </div>
+        <div id="hst-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-ref" id="quick-ref">
+    <strong><i class="fa-solid fa-scale-balanced"></i> Takaran sendok cepat (tangki 16 liter):</strong>
+    <ul>
+      <li><span class="dosis">32 gram</span> = ± 2 sendok makan peres</li>
+      <li><span class="dosis">48 gram</span> = ± 3 sendok makan peres</li>
+      <li><span class="dosis">64 gram</span> = ± 4 sendok makan peres</li>
+      <li><span class="dosis">80 gram</span> = ± 5 sendok makan peres</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Kebun Mandiri Kalimantan Tengah</p>
+  <p class="by gold-text">by Baheula Tani Nusantara (MLv)</p>
+</footer>
+
+<script>
+/* ===== DATA TANAMAN ===== {{x}} = dosis tersorot, **x** = tebal */
+const CROPS=[
+{id:'kangkung-bayam',icon:'seedling',name:'Kangkung & Bayam',
+ meta:[['clock','Siklus Hidup: 20–30 Hari'],['layer-group','Kelompok: Sayuran Daun']],
+ intro:'Fokus penuh pada fase vegetatif cepat untuk menghasilkan tekstur daun lebar, renyah, dan hijau segar.',
+ rows:[['**Pra-Tanam** (-7 hari)','Fertiphos','Tabur Langsung','1 genggam per meter lari bedengan, aduk merata dengan tanah.'],
+ ['**Umur 7 & 14 HST**','Ultradap','{{32 gram}} (2 Sdm)','Kocor/siram merata ke area akar. Interval 7 hari sekali.'],
+ ['**Umur 10 & 17 HST**','KNO3 Merah','{{32 gram}} (2 Sdm)','Semprot merata ke seluruh daun pada pagi/sore hari.']],
+ note:['circle-info','Catatan Panen:','Hentikan total pengaplikasian pupuk minimal 5 hari sebelum panen demi keamanan konsumsi.']},
+{id:'kemangi',icon:'spa',name:'Kemangi',
+ meta:[['arrows-spin','Kelompok: Sayuran Panen Berulang'],['tree','Target: Cabang Banyak & Rimbun']],
+ rows:[['**Pra-Tanam**','Fertiphos','Tabur Langsung','Dicampur langsung sebagai media tanam dasar bedengan/pot.'],
+ ['**Awal (0-25 HST)**','Ultradap + KNO3 Merah','{{Masing-masing 32g}} (2+2 Sdm)','Kocor bersamaan di area perakaran. Rutin setiap **7 hari sekali**.'],
+ ['**Pasca Petik Pucuk**','NPK 16-16-16 Rusia','{{80 gram}} (5 Sdm)','Kocor tepat di lubang tanam sesaat setelah panen pucuk untuk merangsang tunas baru.']]},
+{id:'timun',icon:'lemon',name:'Timun',
+ meta:[['bolt','Karakter: Pertumbuhan Cepat & Rakus Nutrisi'],['square-poll-vertical','Target: Buah Lurus & Padat']],
+ rows:[['**Minggu 1 & 2** (Vegetatif)','Ultradap','{{48 gram}} (3 Sdm)','Kocor akar setiap **7 hari sekali** agar merambat kuat di lanjaran.'],
+ ['**Minggu 3** (Muncul Bunga)','MKP Pak Tani','{{48 gram}} (3 Sdm)','Semprot kabut ke daun dan ketiak bunga. **1 kali seminggu** (mengunci bunga agar tidak rontok).'],
+ ['**Minggu 4 - Panen**','NPK 16-16-16 Rusia<br>+ KNO3 Putih','{{80 gram}} (5 Sdm) kocor<br>{{64 gram}} (4 Sdm) semprot','Kocor NPK Rusia, selang-seling dengan semprot KNO3 Putih setiap **5 hari sekali** agar buah tidak pahit.']]},
+{id:'buncis',icon:'circle-nodes',name:'Buncis',
+ meta:[['dna','Kelompok: Kacang-kacangan (Legum)'],['weight-hanging','Target: Polong Panjang & Padat Berisi']],
+ rows:[['**7 - 21 HST**','Ultradap','{{32 gram}} (2 Sdm)','Kocor cukup **10 hari sekali** (buncis memproduksi nitrogen mandiri, fokus penguatan batang).'],
+ ['**Mulai 25 HST** (Bunga)','MKP Pak Tani','{{48 gram}} (3 Sdm)','Semprot merata setiap **7 hari sekali** agar polong terbentuk sempurna dan tidak kosong.'],
+ ['**Pengisian Polong**','KNO3 Putih','{{64 gram}} (4 Sdm)','Kocor lubang tanam dengan interval **7 hari sekali** untuk mendongkrak bobot.']]},
+{id:'cabe',icon:'pepper-hot',name:'Cabe',
+ meta:[['calendar-days','Umur Panjang (Panen Berulang)'],['shield-halved','Kunci Utama: Daya Tahan & Kalsium']],
+ rows:[['**7 - 28 HST** (Pertumbuhan)','Ultradap + KNO3 Merah','{{Masing-masing 48g}} (3+3 Sdm)','Campur ke tangki, kocorkan merata di akar tanaman setiap **7 hari sekali**.'],
+ ['**Mulai 30 HST** (Pembungaan)','MKP Pak Tani','{{48 gram}} (3 Sdm)','Semprot daun rutin **7 hari sekali** untuk memicu bunga serempak di setiap ketiak.'],
+ ['**Mulai 45 HST+** (Masa Panen)','NPK 16-16-16 Rusia<br>+ KNO3 Putih','{{80 gram}} (5 Sdm) kocor<br>{{64 gram}} (4 Sdm) semprot','Aplikasikan selang-seling (kocor NPK lalu semprot KNO3 Putih) setiap **7-10 hari sekali** secara kontinu.']]},
+{id:'terong',icon:'egg',name:'Terong (Ungu & Bulat)',
+ meta:[['wand-magic-sparkles','Target: Kulit Mengkilap & Bebas Busuk']],
+ rows:[['**7 - 28 HST**','Ultradap + KNO3 Merah','{{Masing-masing 48g}} (3+3 Sdm)','Kocorkan pada perakaran tanaman setiap **7 hari sekali**.'],
+ ['**Fase Bunga**','MKP Pak Tani','{{48 gram}} (3 Sdm)','Semprot kabut daun bagian bawah dan batang atas. **7 hari sekali**.'],
+ ['**Masa Berbuah & Panen**','NPK 16-16-16 Rusia<br>+ KNO3 Putih','{{80 gram}} (5 Sdm) kocor<br>{{64 gram}} (4 Sdm) semprot','Kocor NPK Rusia 250 ml per pohon, selingi semprot KNO3 Putih tiap **7–10 hari sekali** agar buah lebat.']]}
+];
+
+const fmt=s=>s.replace(/\{\{(.+?)\}\}/g,'<span class="dosis">$1</span>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+const rp=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ===== BAR & KONTEN ===== */
+const bars=document.getElementById('bars'), content=document.getElementById('content');
+const GROUPS=[['tanaman','Tanaman','leaf'],['kebun','Kebun','tractor'],['uang','Keuangan','coins'],['data','Gudang & Data','warehouse']];
+const ITEMS=[...CROPS.map(c=>({id:c.id,icon:c.icon,name:c.name,g:'tanaman'})),
+ {id:'dasar-darurat',icon:'triangle-exclamation',name:'Pupuk Dasar & Darurat',g:'tanaman'},
+ {id:'hama',icon:'bug',name:'Hama & Penyakit',g:'tanaman'},
+ {id:'beranda',icon:'house',name:'Beranda',g:'kebun'},
+ {id:'jadwal',icon:'calendar-days',name:'Jadwal Tanam',g:'kebun'},
+ {id:'panen',icon:'basket-shopping',name:'Hasil Panen',g:'kebun'},
+ {id:'biaya',icon:'file-invoice-dollar',name:'Biaya',g:'uang'},
+ {id:'laba',icon:'chart-line',name:'Laba & Bagi Hasil',g:'uang'},
+ {id:'grafik',icon:'chart-pie',name:'Grafik',g:'uang'},
+ {id:'pemodal',icon:'handshake',name:'Nama Pemodal',g:'uang'},
+ {id:'kasbon',icon:'hand-holding-dollar',name:'KASBON SAPRODI',g:'uang',cls:'kasbon'},
+ {id:'stok',icon:'boxes-stacked',name:'Stok Saprodi',g:'data'},
+ {id:'data',icon:'database',name:'Cadangan & PIN',g:'data'}];
+const cropHTML=c=>`<div id="${c.id}" class="section"><div class="brosur">
+ <div class="b-hero"><i class="fa-solid fa-${c.icon} big"></i><h2 class="gold-text">${c.name}</h2>
+ ${c.intro?`<p>${c.intro}</p>`:''}
+ <div class="meta">${c.meta.map(m=>`<span><i class="fa-solid fa-${m[0]}"></i>${m[1]}</span>`).join('')}</div></div>
+ <div class="b-panels">${c.rows.map(r=>`<div class="b-panel">
+  <span class="b-fase">${fmt(r[0]).replace(/<\/?strong>/g,'')}</span>
+  <div class="b-prod">${r[1]}</div>
+  <div class="b-label">DOSIS PER TANGKI 16L</div><div class="b-dosis">${fmt(r[2])}</div>
+  <div class="b-label">CARA &amp; INTERVAL</div><div class="b-cara">${fmt(r[3])}</div></div>`).join('')}</div>
+ ${c.note?`<div class="b-foot"><h4><i class="fa-solid fa-${c.note[0]}"></i> ${c.note[1]}</h4>${c.note[2]}</div>`:''}
+ </div></div>`;
+
+const dasarHTML=`<div id="dasar-darurat" class="section dasar">
+ <div class="sec-head"><i class="fa-solid fa-triangle-exclamation"></i><h2>Panduan Dasar &amp; Tindakan Darurat</h2></div>
+ <div style="margin-bottom:1.5rem"><h3><i class="fa-solid fa-minimize"></i> Peran Vital Fertiphos Pak Tani (Pupuk Dasar)</h3>
+ <p>Wajib diaplikasikan 7-10 hari sebelum bibit masuk ke lahan terbuka. Mengandung fosfat tinggi dikombinasikan dengan kalsium dan silika yang berguna mempertebal sel pelindung luar tanaman agar tidak rentan diserang penyakit layu bakteri maupun jamur tanah.</p></div>
+ <div class="note"><h4><i class="fa-solid fa-circle-exclamation"></i> Penanganan Daun Menguning (Klorosis)</h4>
+ <p>Apabila daun muda/tua mendadak menguning di area antara tulang daun, segera lakukan penyelamatan berikut:</p>
+ <ul><li><strong>Produk:</strong> Magnesium Sulfate Pak Tani.</li>
+ <li><strong>Dosis tangki 16L:</strong> <span class="dosis">32 gram</span> (2 sendok makan).</li>
+ <li><strong>Metode:</strong> Semprot kabut langsung pada area daun yang terinfeksi.</li>
+ <li><strong>Interval:</strong> Setiap <strong>7 hari sekali</strong> sampai warna daun pulih menjadi hijau pekat alami.</li></ul></div></div>`;
+
+const PRODUK=['Fertiphos','Ultradap','KNO3 Merah','KNO3 Putih','MKP Pak Tani','NPK 16-16-16 Rusia','Magnesium Sulfate Pak Tani','Lainnya (tulis sendiri)'];
+const kasbonHTML=`<div id="kasbon" class="section">
+ <div class="sec-head"><i class="fa-solid fa-hand-holding-dollar"></i><h2>Kasbon Barang Saprodi</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Catat pengambilan saprodi secara kasbon. Data tersimpan di perangkat ini (browser).</p>
+ <div class="k-form">
+  <div><label for="k-nama">Nama petani</label><input id="k-nama" placeholder="Contoh: Pak Slamet"></div>
+  <div><label for="k-tgl">Tanggal ambil</label><input type="date" id="k-tgl"></div>
+  <div><label for="k-prod">Barang saprodi</label><select id="k-prod">${PRODUK.map(p=>`<option>${p}</option>`).join('')}</select></div>
+  <div id="k-lain-wrap" style="display:none"><label for="k-lain">Nama barang</label><input id="k-lain" placeholder="Tulis nama barang"></div>
+  <div><label for="k-qty">Jumlah (kg / pcs)</label><input type="number" id="k-qty" min="0" step="any" placeholder="0"></div>
+  <div><label for="k-harga">Harga satuan (Rp)</label><input type="number" id="k-harga" min="0" step="any" placeholder="0"></div>
+  <div><label for="k-tempo">Jatuh tempo (opsional)</label><input type="date" id="k-tempo"></div>
+  <div class="full"><label for="k-cat">Catatan (opsional)</label><input id="k-cat" placeholder="Jatuh tempo, panen, dll."></div>
+  <div class="full"><button class="btn" onclick="addKasbon()"><i class="fa-solid fa-plus"></i> Simpan kasbon</button></div>
+ </div>
+ <div class="k-sum" id="k-sum"></div>
+ <div class="fbar" data-for="k-body"><input type="search" class="fq" placeholder="Cari nama petani / barang..." oninput="applyFilter('k-body')" aria-label="Cari"><input type="date" class="f1" onchange="applyFilter('k-body')" aria-label="Dari tanggal"> s/d <input type="date" class="f2" onchange="applyFilter('k-body')" aria-label="Sampai tanggal"></div>
+ <div class="tbl"><table><thead><tr><th>Tanggal</th><th>Petani</th><th>Barang</th><th class="right">Jumlah</th><th class="right">Total</th><th class="right">Sisa</th><th>Status</th><th></th></tr></thead><tbody id="k-body"></tbody></table></div>
+ <h3 class="sub">Rekap per petani</h3><div class="tbl"><table><thead><tr><th>Petani</th><th class="right">Total kasbon</th><th class="right">Terbayar</th><th class="right">Sisa utang</th><th>Jatuh tempo</th></tr></thead><tbody id="k-rekap"></tbody></table></div>
+ <button class="btn gold small" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak rekap</button>
+</div>`;
+
+const panenHTML=`<div id="panen" class="section">
+ <div class="sec-head"><i class="fa-solid fa-basket-shopping"></i><h2>Hasil Panen</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Catat hasil panen tiap tanaman. Data tersimpan di perangkat ini (browser).</p>
+ <div class="k-form">
+  <div><label for="p-tgl">Tanggal panen</label><input type="date" id="p-tgl"></div>
+  <div><label for="p-tan">Tanaman</label><select id="p-tan">${CROPS.map(c=>`<option>${c.name}</option>`).join('')}</select></div>
+  <div><label for="p-kg">Hasil (kg)</label><input type="number" id="p-kg" min="0" step="any" placeholder="0"></div>
+  <div><label for="p-harga">Harga jual per kg (Rp)</label><input type="number" id="p-harga" min="0" step="any" placeholder="0"></div>
+  <div class="full"><label for="p-cat">Catatan / pembeli (opsional)</label><input id="p-cat" placeholder="Contoh: dijual ke pasar, panen ke-2"></div>
+  <div class="full"><button class="btn" onclick="addPanen()"><i class="fa-solid fa-plus"></i> Simpan hasil panen</button></div>
+ </div>
+ <div class="k-sum" id="p-sum"></div>
+ <div class="fbar" data-for="p-body"><input type="search" class="fq" placeholder="Cari tanaman / catatan..." oninput="applyFilter('p-body')" aria-label="Cari"><input type="date" class="f1" onchange="applyFilter('p-body')" aria-label="Dari tanggal"> s/d <input type="date" class="f2" onchange="applyFilter('p-body')" aria-label="Sampai tanggal"></div>
+ <div class="tbl"><table><thead><tr><th>Tanggal</th><th>Tanaman</th><th class="right">Hasil (kg)</th><th class="right">Nilai jual</th><th></th></tr></thead><tbody id="p-body"></tbody></table></div>
+ <button class="btn gold small" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak rekap</button>
+</div>`;
+
+const pemodalHTML=`<div id="pemodal" class="section">
+ <div class="sec-head"><i class="fa-solid fa-handshake"></i><h2>Nama Pemodal</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Catat siapa yang menanam modal, berupa uang tunai atau barang. Data tersimpan di perangkat ini (browser).</p>
+ <div class="k-form">
+  <div><label for="m-nama">Nama pemodal</label><input id="m-nama" placeholder="Contoh: Pak Haji Ahmad"></div>
+  <div><label for="m-tgl">Tanggal</label><input type="date" id="m-tgl"></div>
+  <div><label for="m-jenis">Bentuk modal</label><select id="m-jenis"><option value="uang">Uang tunai</option><option value="barang">Barang</option></select></div>
+  <div id="m-uang-wrap"><label for="m-nominal">Jumlah uang (Rp)</label><input type="number" id="m-nominal" min="0" step="any" placeholder="0"></div>
+  <div id="m-brg-wrap" style="display:none"><label for="m-barang">Nama barang</label><input id="m-barang" placeholder="Contoh: Pupuk NPK 50 kg"></div>
+  <div id="m-qty-wrap" style="display:none"><label for="m-qty">Jumlah barang</label><input id="m-qty" placeholder="Contoh: 2 karung"></div>
+  <div id="m-nilai-wrap" style="display:none"><label for="m-nilai">Perkiraan nilai barang (Rp)</label><input type="number" id="m-nilai" min="0" step="any" placeholder="0"></div>
+  <div class="full"><label for="m-cat">Catatan / kesepakatan (opsional)</label><input id="m-cat" placeholder="Contoh: bagi hasil 50:50 setelah panen"></div>
+  <div class="full"><button class="btn" onclick="addPemodal()"><i class="fa-solid fa-plus"></i> Simpan pemodal</button></div>
+ </div>
+ <div class="k-sum" id="m-sum"></div>
+ <div class="fbar" data-for="m-body"><input type="search" class="fq" placeholder="Cari nama pemodal / barang..." oninput="applyFilter('m-body')" aria-label="Cari"><input type="date" class="f1" onchange="applyFilter('m-body')" aria-label="Dari tanggal"> s/d <input type="date" class="f2" onchange="applyFilter('m-body')" aria-label="Sampai tanggal"></div>
+ <div class="tbl"><table><thead><tr><th>Tanggal</th><th>Pemodal</th><th>Bentuk</th><th>Rincian</th><th class="right">Nilai</th><th></th></tr></thead><tbody id="m-body"></tbody></table></div>
+ <button class="btn gold small" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak rekap</button>
+</div>`;
+
+const $=id=>document.getElementById(id);
+const LS=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
+const SV=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const sum=(a,f)=>a.reduce((t,x)=>t+f(x),0);
+const MILE={
+ 'kangkung-bayam':[[7,'Ultradap 32 g (2 Sdm) kocor'],[10,'KNO3 Merah 32 g (2 Sdm) semprot'],[14,'Ultradap 32 g (2 Sdm) kocor'],[17,'KNO3 Merah 32 g (2 Sdm) semprot'],[25,'Hentikan pupuk (min. 5 hari sebelum panen)']],
+ 'kemangi':[[7,'Ultradap + KNO3 Merah @32 g kocor'],[14,'Ultradap + KNO3 Merah @32 g kocor'],[21,'Ultradap + KNO3 Merah @32 g kocor'],[25,'Mulai petik pucuk, lalu NPK 80 g kocor']],
+ 'timun':[[7,'Ultradap 48 g (3 Sdm) kocor'],[14,'Ultradap 48 g (3 Sdm) kocor'],[21,'MKP 48 g (3 Sdm) semprot (bunga)'],[28,'NPK 80 g kocor, selang-seling KNO3 Putih 64 g semprot'],[33,'KNO3 Putih 64 g semprot']],
+ 'buncis':[[7,'Ultradap 32 g kocor'],[17,'Ultradap 32 g kocor'],[25,'MKP 48 g semprot (bunga)'],[32,'MKP 48 g semprot + KNO3 Putih 64 g kocor']],
+ 'cabe':[[7,'Ultradap + KNO3 Merah @48 g kocor'],[14,'Ultradap + KNO3 Merah @48 g kocor'],[21,'Ultradap + KNO3 Merah @48 g kocor'],[28,'Ultradap + KNO3 Merah @48 g kocor'],[30,'MKP 48 g semprot (bunga)'],[37,'MKP 48 g semprot'],[45,'NPK 80 g kocor, selang-seling KNO3 Putih 64 g semprot']],
+ 'terong':[[7,'Ultradap + KNO3 Merah @48 g kocor'],[14,'Ultradap + KNO3 Merah @48 g kocor'],[21,'Ultradap + KNO3 Merah @48 g kocor'],[28,'Ultradap + KNO3 Merah @48 g kocor'],[35,'MKP 48 g semprot (fase bunga)'],[45,'NPK 80 g kocor, selang-seling KNO3 Putih 64 g semprot']]
+};
+const HAMA={
+ 'kangkung-bayam':[['Ulat daun','Daun berlubang/bergerigi.','Ambil ulat &amp; telur manual pagi/sore; tutup bedengan dengan jaring bila serangan berulang.'],['Kutu daun','Daun keriting, lengket, ada koloni kecil.','Semprot air bertekanan atau larutan sabun cair ringan; bersihkan gulma sekitar.'],['Karat putih','Bercak putih di bawah daun.','Buang daun sakit, jangan tanam terlalu rapat, kurangi basah di daun malam hari.']],
+ 'kemangi':[['Ulat pemakan daun','Daun bolong, ada kotoran hitam.','Ambil manual; petik pucuk rutin agar tanaman tidak terlalu rimbun.'],['Kutu putih / kutu daun','Daun mengeriting, ada bercak lengket.','Semprot air/sabun cair ringan; sisihkan tanaman yang parah.'],['Busuk akar / layu','Layu walau tanah basah.','Perbaiki drainase, tinggikan bedengan, kurangi penyiraman.']],
+ 'timun':[['Embun tepung','Lapisan putih seperti tepung di daun.','Buang daun parah, perbaiki sirkulasi udara (lanjaran, jarak tanam).'],['Lalat buah','Buah bintik, busuk, ada belatung.','Bungkus buah muda, pasang perangkap, buang &amp; kubur buah busuk.'],['Kutu daun / thrips','Daun keriting, pucuk kerdil.','Perangkap kuning, semprot air bertekanan, bersihkan gulma.'],['Layu bakteri','Layu mendadak, batang berlendir.','Cabut &amp; musnahkan tanaman, jangan tanam sefamili di lahan yang sama berturut-turut.']],
+ 'buncis':[['Karat daun','Bintik oranye-coklat di bawah daun.','Buang daun sakit, jaga jarak tanam dan sanitasi lahan.'],['Penggerek polong','Polong berlubang, ada ulat di dalam.','Petik &amp; musnahkan polong terserang, pantau tiap minggu.'],['Antraknosa','Bercak cekung kehitaman di polong/daun.','Gunakan benih sehat, hindari menyiram dari atas, buang bagian sakit.']],
+ 'cabe':[['Antraknosa (patek)','Bercak cekung pada buah, membusuk.','Petik &amp; buang buah sakit, jaga drainase dan kebersihan lahan.'],['Thrips &amp; tungau','Daun keriting/melengkung, tampak keperakan.','Perangkap kuning, semprot air bertekanan, pantau bagian bawah daun.'],['Kutu kebul (penular virus)','Daun mengeriting &amp; menguning belang.','Cabut tanaman bergejala berat agar tidak menular, kendalikan kutu kebul.'],['Layu bakteri/jamur','Layu total mendadak.','Cabut &amp; musnahkan, perbaiki drainase, rotasi tanaman.']],
+ 'terong':[['Penggerek pucuk &amp; buah','Pucuk layu, buah berlubang.','Potong pucuk/buah terserang lalu musnahkan.'],['Tungau / kutu daun','Daun berbintik kuning, keriting.','Semprot air bertekanan, perangkap kuning, jaga kelembapan seimbang.'],['Layu bakteri','Layu mendadak, batang berlendir.','Cabut &amp; musnahkan, jangan tanam famili terong-terongan berturut-turut.']]
+};
+const hamaHTML=`<div id="hama" class="section"><div class="sec-head"><i class="fa-solid fa-bug"></i><h2>Hama &amp; Penyakit</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Panduan umum. Bila serangan berat, konsultasikan ke penyuluh (PPL) setempat. Pakai pestisida hanya sesuai label dan patuhi masa tunggu panen.</p>
+ ${CROPS.map(c=>`<details class="hm"><summary><i class="fa-solid fa-${c.icon}"></i>${c.name}</summary>
+  ${HAMA[c.id].map(h=>`<div class="hm-item"><b>${h[0]}</b><br><strong>Gejala:</strong> ${h[1]}<br><strong>Penanganan:</strong> ${h[2]}</div>`).join('')}</details>`).join('')}</div>`;
+
+const jadwalHTML=`<div id="jadwal" class="section"><div class="sec-head"><i class="fa-solid fa-calendar-days"></i><h2>Jadwal Tanam</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Catat tanggal tanam; umur (HST) dan jadwal pupuk berikutnya dihitung otomatis. Jadwal bersifat perkiraan mengikuti panduan di bar tanaman.</p>
+ <div class="k-form">
+  <div><label for="j-tan">Tanaman</label><select id="j-tan">${CROPS.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
+  <div><label for="j-tgl">Tanggal tanam</label><input type="date" id="j-tgl"></div>
+  <div class="full"><label for="j-lahan">Lahan / blok (opsional)</label><input id="j-lahan" placeholder="Contoh: Bedengan 1, lahan belakang"></div>
+  <div class="full"><button class="btn" onclick="addTanam()"><i class="fa-solid fa-plus"></i> Simpan jadwal</button></div></div>
+ <h3 class="sub">Tanaman berjalan</h3><div class="jd-grid" id="j-list"></div></div>`;
+
+const biayaHTML=`<div id="biaya" class="section"><div class="sec-head"><i class="fa-solid fa-file-invoice-dollar"></i><h2>Biaya Kebun</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Catat pengeluaran. Saprodi yang diambil kasbon jangan dicatat lagi di sini, karena kasbon sudah dihitung otomatis di Laba.</p>
+ <div class="k-form">
+  <div><label for="b-tgl">Tanggal</label><input type="date" id="b-tgl"></div>
+  <div><label for="b-kat">Kategori</label><select id="b-kat"><option>Bibit/Benih</option><option>Upah</option><option>Solar/BBM</option><option>Transport</option><option>Alat</option><option>Pupuk/Obat (tunai)</option><option>Lain-lain</option></select></div>
+  <div><label for="b-nom">Nominal (Rp)</label><input type="number" id="b-nom" min="0" step="any" placeholder="0"></div>
+  <div><label for="b-ket">Keterangan</label><input id="b-ket" placeholder="Contoh: upah tanam 2 orang"></div>
+  <div class="full"><button class="btn" onclick="addBiaya()"><i class="fa-solid fa-plus"></i> Simpan biaya</button></div></div>
+ <div class="k-sum" id="b-sum"></div>
+ <div class="fbar" data-for="b-body"><input type="search" class="fq" placeholder="Cari kategori / keterangan..." oninput="applyFilter('b-body')" aria-label="Cari"><input type="date" class="f1" onchange="applyFilter('b-body')" aria-label="Dari tanggal"> s/d <input type="date" class="f2" onchange="applyFilter('b-body')" aria-label="Sampai tanggal"></div>
+ <div class="tbl"><table><thead><tr><th>Tanggal</th><th>Kategori</th><th>Keterangan</th><th class="right">Nominal</th><th></th></tr></thead><tbody id="b-body"></tbody></table></div></div>`;
+
+const labaHTML=`<div id="laba" class="section"><div class="sec-head"><i class="fa-solid fa-chart-line"></i><h2>Laba &amp; Bagi Hasil</h2></div>
+ <div class="k-sum" id="l-sum"></div>
+ <h3 class="sub">Bagi hasil pemodal</h3>
+ <p class="hint">Isi persentase tiap pemodal sesuai kesepakatan. Sisa persentase menjadi bagian petani.</p>
+ <label class="chk"><input type="checkbox" id="l-kembali" onchange="setKembali(this.checked)"> Kembalikan modal pemodal lebih dulu, baru bagi hasil dari sisanya</label>
+ <div class="tbl"><table><thead><tr><th>Pihak</th><th class="right">Modal</th><th class="right">Bagian %</th><th class="right">Bagian laba</th><th class="right">Total diterima</th></tr></thead><tbody id="l-body"></tbody></table></div>
+ <div id="l-warn"></div></div>`;
+
+const PSTOK=PRODUK.slice(0,-1);
+const stokHTML=`<div id="stok" class="section"><div class="sec-head"><i class="fa-solid fa-boxes-stacked"></i><h2>Stok Saprodi</h2></div>
+ <p class="hint" style="margin-bottom:1rem">Catat stok masuk. Setiap kasbon dengan nama barang yang sama mengurangi stok otomatis. Stok dianggap menipis bila sisa 5 atau kurang.</p>
+ <datalist id="produk-list">${PSTOK.map(p=>`<option value="${p}">`).join('')}</datalist>
+ <div class="k-form">
+  <div><label for="s-tgl">Tanggal</label><input type="date" id="s-tgl"></div>
+  <div><label for="s-brg">Barang</label><input id="s-brg" list="produk-list" placeholder="Pilih / tulis nama barang"></div>
+  <div><label for="s-jenis">Jenis</label><select id="s-jenis"><option value="masuk">Stok masuk</option><option value="pakai">Dipakai sendiri</option></select></div>
+  <div><label for="s-qty">Jumlah (kg / pcs)</label><input type="number" id="s-qty" min="0" step="any" placeholder="0"></div>
+  <div class="full"><button class="btn" onclick="addStok()"><i class="fa-solid fa-plus"></i> Simpan stok</button></div></div>
+ <h3 class="sub">Sisa stok</h3>
+ <div class="tbl"><table><thead><tr><th>Barang</th><th class="right">Masuk</th><th class="right">Dipakai</th><th class="right">Kasbon</th><th class="right">Sisa</th><th>Status</th></tr></thead><tbody id="s-body"></tbody></table></div>
+ <h3 class="sub">Riwayat stok</h3>
+ <div class="fbar" data-for="s-log"><input type="search" class="fq" placeholder="Cari barang..." oninput="applyFilter('s-log')" aria-label="Cari"><input type="date" class="f1" onchange="applyFilter('s-log')" aria-label="Dari tanggal"> s/d <input type="date" class="f2" onchange="applyFilter('s-log')" aria-label="Sampai tanggal"></div>
+ <div class="tbl"><table><thead><tr><th>Tanggal</th><th>Barang</th><th>Jenis</th><th class="right">Jumlah</th><th></th></tr></thead><tbody id="s-log"></tbody></table></div></div>`;
+
+const dataHTML=`<div id="data" class="section"><div class="sec-head"><i class="fa-solid fa-database"></i><h2>Cadangan Data &amp; PIN</h2></div>
+ <div class="data-grid">
+  <div class="card"><h3><i class="fa-solid fa-mobile-screen"></i> Pasang di layar HP</h3>
+   <p class="hint">Dashboard bisa dipasang seperti aplikasi di layar HP. Android Chrome: tombol di bawah atau menu &#8942; &rarr; Pasang aplikasi. iPhone Safari: Bagikan &rarr; Tambah ke Layar Utama.</p>
+   <button class="btn gold" id="pwa-btn" style="display:none" onclick="pasangApp()"><i class="fa-solid fa-download"></i> Pasang aplikasi</button></div>
+  <div class="card"><h3><i class="fa-solid fa-cloud-arrow-down"></i> Cadangan data</h3>
+   <p class="hint">Simpan semua catatan ke satu file, dan pulihkan bila ganti HP atau data browser terhapus.</p>
+   <button class="btn gold" onclick="exportData()"><i class="fa-solid fa-download"></i> Unduh cadangan</button>
+   <label class="btn" style="display:inline-block;cursor:pointer"><i class="fa-solid fa-upload"></i> Pulihkan<input type="file" accept=".json,application/json" hidden onchange="importData(this)"></label></div>
+  <div class="card"><h3><i class="fa-brands fa-whatsapp"></i> Kirim rekap WhatsApp</h3>
+   <p class="hint">Kirim ringkasan panen, biaya, laba, kasbon, dan modal sebagai pesan teks.</p>
+   <button class="btn gold" onclick="kirimWA()"><i class="fa-solid fa-paper-plane"></i> Kirim rekap</button></div>
+  <div class="card"><h3><i class="fa-solid fa-lock"></i> PIN pengaman</h3>
+   <p class="hint" id="pin-status"></p>
+   <div class="input-group"><input type="password" id="pin1" inputmode="numeric" maxlength="8" placeholder="PIN 4-8 angka" autocomplete="off"><input type="password" id="pin2" inputmode="numeric" maxlength="8" placeholder="Ulangi PIN" autocomplete="off"></div>
+   <div style="margin-top:.5rem"><button class="btn" onclick="setPin()">Simpan PIN</button><button class="btn gold" onclick="lockNow()">Kunci sekarang</button><button class="btn" onclick="clearPin()">Hapus PIN</button></div>
+   <p class="hint">PIN hanya pengaman tampilan dasar, bukan enkripsi. Lupa PIN? Hapus data situs di pengaturan browser (unduh cadangan dulu).</p></div>
+  <div class="card"><h3><i class="fa-solid fa-trash"></i> Hapus semua data</h3>
+   <p class="hint">Menghapus kasbon, panen, pemodal, biaya, jadwal, dan stok di perangkat ini.</p>
+   <button class="btn" onclick="hapusSemua()">Hapus semua</button></div>
+ </div></div>`;
+
+const grafikHTML=`<div id="grafik" class="section"><div class="sec-head"><i class="fa-solid fa-chart-pie"></i><h2>Grafik Kebun</h2></div>
+ <h3 class="sub">Hasil panen per tanaman</h3><div id="g-panen"></div>
+ <h3 class="sub">Pengeluaran per kategori</h3><div id="g-biaya"></div>
+ <h3 class="sub">Pendapatan vs pengeluaran per bulan</h3><p class="hint">Emas = pendapatan panen, merah = biaya + kasbon saprodi.</p><div id="g-bulan"></div></div>`;
+
+content.innerHTML=CROPS.map(cropHTML).join('')+dasarHTML+grafikHTML+hamaHTML+jadwalHTML+biayaHTML+labaHTML+stokHTML+dataHTML+panenHTML+pemodalHTML+kasbonHTML;
+
+const ber=document.createElement('div');ber.id='beranda';ber.className='section';
+ber.innerHTML='<div class="sec-head"><i class="fa-solid fa-house"></i><h2>Beranda</h2></div><div class="k-sum" id="h-sum"></div><h3 class="sub">Jadwal pupuk terdekat</h3><div class="jd-grid" id="h-jadwal"></div><h3 class="sub">Stok perlu perhatian</h3><div id="h-stok" style="margin-bottom:1.2rem"></div><h3 class="sub">Cuaca 7 hari</h3><div class="input-group" style="margin:0 0 .7rem"><select id="c-kota" onchange="loadCuaca()" aria-label="Lokasi cuaca"></select><button class="btn small" onclick="loadCuaca()"><i class="fa-solid fa-rotate"></i> Muat ulang</button></div><div id="c-tip"></div><div class="cw-grid" id="h-cuaca"><p class="hint">Memuat cuaca...</p></div>';
+ber.append($('quick-ref'),$('tracker-card'));content.prepend(ber);
+$('quick-ref').style.marginTop='1.2rem';$('tracker-card').style.margin='0';
+
+let curG='kebun',curId='beranda';
+function renderNav(){
+  $('groups').innerHTML=GROUPS.map(g=>`<button class="grp-btn ${g[0]===curG?'active':''}" data-g="${g[0]}"><i class="fa-solid fa-${g[2]}"></i>${g[1]}</button>`).join('');
+  bars.innerHTML=ITEMS.filter(i=>i.g===curG).map(b=>`<button class="bar-btn ${b.cls||''} ${b.id===curId?'active':''}" data-id="${b.id}"><i class="fa-solid fa-${b.icon} ic"></i>${b.name}</button>`).join('');
+  const a=bars.querySelector('.active');if(a)bars.scrollTo({left:Math.max(0,a.offsetLeft-20),behavior:'smooth'});
+}
+function openBar(id){
+  const it=ITEMS.find(x=>x.id===id);if(!it)return;
+  curId=id;curG=it.g;renderNav();
+  document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===id));
+  content.scrollIntoView({behavior:'smooth',block:'start'});
+}
+bars.addEventListener('click',e=>{const b=e.target.closest('.bar-btn');if(b)openBar(b.dataset.id)});
+$('groups').addEventListener('click',e=>{const b=e.target.closest('.grp-btn');if(!b)return;curG=b.dataset.g;openBar(ITEMS.find(x=>x.g===curG).id)});
+
+/* ===== KASBON ===== */
+const KEY='kasbon_saprodi_mlv';
+let kasbon=[];
+try{kasbon=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){kasbon=[]}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(kasbon))}catch(e){}};
+
+document.getElementById('k-prod').addEventListener('change',e=>{
+  document.getElementById('k-lain-wrap').style.display=e.target.value.startsWith('Lainnya')?'block':'none';
+});
+function addKasbon(){
+  const v=id=>document.getElementById(id).value.trim();
+  const nama=v('k-nama'),qty=parseFloat(v('k-qty')),harga=parseFloat(v('k-harga'));
+  let barang=v('k-prod'); if(barang.startsWith('Lainnya')) barang=v('k-lain');
+  if(!nama||!barang||!(qty>0)||!(harga>=0)||v('k-harga')===''){alert('Lengkapi nama petani, barang, jumlah, dan harga satuan.');return}
+  kasbon.unshift({id:Date.now(),tgl:v('k-tgl')||new Date().toISOString().slice(0,10),nama,barang,qty,harga,cat:v('k-cat'),tempo:v('k-tempo'),bayar:[],lunas:false});
+  save();['k-nama','k-qty','k-harga','k-cat','k-lain'].forEach(i=>document.getElementById(i).value='');
+  renderKasbon();
+}
+function toggleLunas(id){const k=kasbon.find(x=>x.id===id);if(k){k.lunas=!k.lunas;save();renderKasbon()}}
+function delKasbon(id){if(confirm('Hapus catatan kasbon ini?')){kasbon=kasbon.filter(x=>x.id!==id);save();renderKasbon()}}
+const totKas=k=>k.qty*k.harga;
+const bayarKas=k=>k.lunas?totKas(k):Math.min(totKas(k),sum(k.bayar||[],b=>b.jml));
+const sisaKas=k=>Math.max(0,totKas(k)-bayarKas(k));
+const hariIni=()=>new Date().toISOString().slice(0,10);
+function renderKasbon(){
+  const total=sum(kasbon,totKas),paid=sum(kasbon,bayarKas),t0=hariIni();
+  $('k-sum').innerHTML=`<div><small>Jumlah catatan</small><b>${kasbon.length}</b></div><div><small>Total kasbon</small><b>${rp(total)}</b></div><div><small>Terbayar</small><b>${rp(paid)}</b></div><div class="red"><small>Sisa utang</small><b>${rp(total-paid)}</b></div>`;
+  $('k-body').innerHTML=kasbon.length?kasbon.map(k=>{
+    const sisa=sisaKas(k),late=sisa>0&&k.tempo&&k.tempo<t0;
+    const st=sisa===0?'<span class="st lunas" style="cursor:default">Lunas</span>':late?'<span class="st belum" style="cursor:default">Jatuh tempo</span>':(k.bayar&&k.bayar.length)?'<span class="st belum" style="cursor:default;background:#8a6a14">Cicil</span>':'<span class="st belum" style="cursor:default">Belum lunas</span>';
+    return `<tr><td>${k.tgl}</td><td><strong>${esc(k.nama)}</strong>${k.tempo?`<br><small style="color:var(--muted)">Tempo ${k.tempo}</small>`:''}</td><td>${esc(k.barang)}${k.cat?`<br><small style="color:var(--muted)">${esc(k.cat)}</small>`:''}</td>
+    <td class="right">${k.qty}</td><td class="right">${rp(totKas(k))}</td><td class="right"><b>${rp(sisa)}</b></td><td>${st}</td>
+    <td class="act">${sisa>0?`<button class="btn small" onclick="bayarKasbon(${k.id})" title="Catat cicilan" aria-label="Cicilan"><i class="fa-solid fa-coins"></i></button>`:''}<button class="btn small gold" onclick="cetakNota('kasbon',${k.id})" title="Cetak nota" aria-label="Nota"><i class="fa-solid fa-receipt"></i></button><button class="btn small gold" onclick="editRec('kasbon',${k.id})" title="Edit" aria-label="Edit"><i class="fa-solid fa-pen"></i></button><button class="btn small" onclick="delKasbon(${k.id})" aria-label="Hapus"><i class="fa-solid fa-trash"></i></button></td></tr>`}).join('')
+   :`<tr><td colspan="8" class="empty">Belum ada kasbon. Isi formulir di atas untuk mencatat pengambilan pertama.</td></tr>`;
+  const g={};kasbon.forEach(k=>{const n=k.nama.trim().toLowerCase();g[n]=g[n]||{nama:k.nama,t:0,p:0,tempo:''};g[n].t+=totKas(k);g[n].p+=bayarKas(k);if(sisaKas(k)>0&&k.tempo&&(!g[n].tempo||k.tempo<g[n].tempo))g[n].tempo=k.tempo});
+  const rk=Object.values(g).sort((a,b)=>(b.t-b.p)-(a.t-a.p));
+  $('k-rekap').innerHTML=rk.length?rk.map(x=>`<tr><td><strong>${esc(x.nama)}</strong></td><td class="right">${rp(x.t)}</td><td class="right">${rp(x.p)}</td><td class="right"><b class="${x.t-x.p>0?'neg':''}">${rp(x.t-x.p)}</b></td><td>${x.tempo&&x.t-x.p>0?`<span class="${x.tempo<t0?'chip red':''}">${x.tempo}</span>`:'-'}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">Belum ada data.</td></tr>';
+}
+function bayarKasbon(id){
+  const k=kasbon.find(x=>x.id===id);if(!k)return;
+  openModal('Cicilan kasbon · '+k.nama,[['tgl','Tanggal','date',hariIni()],['jml','Jumlah dibayar (Rp)','number',sisaKas(k)]],o=>{
+    const j=parseFloat(o.jml);if(!(j>0)){alert('Isi jumlah lebih dari 0.');return false}
+    if(j>sisaKas(k)+0.5&&!confirm('Jumlah melebihi sisa utang. Lanjutkan?'))return false;
+    (k.bayar=k.bayar||[]).push({id:Date.now(),tgl:o.tgl||hariIni(),jml:j});SV('kasbon_saprodi_mlv',kasbon);renderKasbon();
+  });
+  const b=k.bayar||[];
+  $('md-extra').innerHTML=`<b>Sisa utang: ${rp(sisaKas(k))}</b>`+b.map(x=>`<div><span>${x.tgl} · ${rp(x.jml)}</span><button class="btn small" onclick="rmBayar(${k.id},${x.id})" aria-label="Hapus cicilan"><i class="fa-solid fa-trash"></i></button></div>`).join('');
+}
+function rmBayar(kid,pid){const k=kasbon.find(x=>x.id===kid);if(k&&confirm('Hapus cicilan ini?')){k.bayar=k.bayar.filter(x=>x.id!==pid);SV('kasbon_saprodi_mlv',kasbon);renderKasbon();closeModal()}}
+
+/* ===== HASIL PANEN ===== */
+const PKEY='panen_mlv';
+let panen=[];
+try{panen=JSON.parse(localStorage.getItem(PKEY)||'[]')}catch(e){panen=[]}
+const saveP=()=>{try{localStorage.setItem(PKEY,JSON.stringify(panen))}catch(e){}};
+function addPanen(){
+  const v=id=>document.getElementById(id).value.trim();
+  const kg=parseFloat(v('p-kg')),harga=parseFloat(v('p-harga'))||0;
+  if(!(kg>0)){alert('Isi hasil panen (kg) dengan angka lebih dari 0.');return}
+  panen.unshift({id:Date.now(),tgl:v('p-tgl')||new Date().toISOString().slice(0,10),tan:v('p-tan'),kg,harga,cat:v('p-cat')});
+  saveP();['p-kg','p-harga','p-cat'].forEach(i=>document.getElementById(i).value='');
+  renderPanen();
+}
+function delPanen(id){if(confirm('Hapus catatan panen ini?')){panen=panen.filter(x=>x.id!==id);saveP();renderPanen()}}
+function renderPanen(){
+  const kg=panen.reduce((s,p)=>s+p.kg,0),nilai=panen.reduce((s,p)=>s+p.kg*p.harga,0);
+  document.getElementById('p-sum').innerHTML=
+   `<div><small>Jumlah panen</small><b>${panen.length}x</b></div><div><small>Total hasil</small><b>${kg.toLocaleString('id-ID')} kg</b></div><div class="red"><small>Total nilai jual</small><b>${rp(nilai)}</b></div>`;
+  document.getElementById('p-body').innerHTML=panen.length?panen.map(p=>`<tr>
+   <td>${p.tgl}</td><td><strong>${esc(p.tan)}</strong>${p.cat?`<br><small style="color:var(--muted)">${esc(p.cat)}</small>`:''}</td>
+   <td class="right">${p.kg.toLocaleString('id-ID')}</td><td class="right"><b>${rp(p.kg*p.harga)}</b></td>
+   <td><button class="btn small gold" onclick="editRec('panen',${p.id})" aria-label="Edit" title="Edit"><i class="fa-solid fa-pen"></i></button> <button class="btn small" onclick="delPanen(${p.id})" aria-label="Hapus"><i class="fa-solid fa-trash"></i></button></td></tr>`).join('')
+   :`<tr><td colspan="5" class="empty">Belum ada hasil panen. Isi formulir di atas setelah panen.</td></tr>`;
+}
+
+/* ===== PEMODAL ===== */
+const MKEY='pemodal_mlv';
+let pemodal=[];
+try{pemodal=JSON.parse(localStorage.getItem(MKEY)||'[]')}catch(e){pemodal=[]}
+const saveM=()=>{try{localStorage.setItem(MKEY,JSON.stringify(pemodal))}catch(e){}};
+document.getElementById('m-jenis').addEventListener('change',e=>{
+  const u=e.target.value==='uang';
+  document.getElementById('m-uang-wrap').style.display=u?'block':'none';
+  ['m-brg-wrap','m-qty-wrap','m-nilai-wrap'].forEach(i=>document.getElementById(i).style.display=u?'none':'block');
+});
+function addPemodal(){
+  const v=id=>document.getElementById(id).value.trim();
+  const jenis=v('m-jenis'),nama=v('m-nama');
+  if(!nama){alert('Isi nama pemodal.');return}
+  let item={id:Date.now(),tgl:v('m-tgl')||new Date().toISOString().slice(0,10),nama,jenis,cat:v('m-cat')};
+  if(jenis==='uang'){
+    const n=parseFloat(v('m-nominal'));
+    if(!(n>0)){alert('Isi jumlah uang lebih dari 0.');return}
+    item.nilai=n;item.rinci='Uang tunai';
+  }else{
+    if(!v('m-barang')){alert('Isi nama barang.');return}
+    item.nilai=parseFloat(v('m-nilai'))||0;item.rinci=v('m-barang')+(v('m-qty')?' ('+v('m-qty')+')':'');
+  }
+  pemodal.unshift(item);saveM();
+  ['m-nama','m-nominal','m-barang','m-qty','m-nilai','m-cat'].forEach(i=>document.getElementById(i).value='');
+  renderPemodal();
+}
+function delPemodal(id){if(confirm('Hapus catatan pemodal ini?')){pemodal=pemodal.filter(x=>x.id!==id);saveM();renderPemodal()}}
+function renderPemodal(){
+  const uang=pemodal.filter(p=>p.jenis==='uang').reduce((s,p)=>s+p.nilai,0);
+  const brg=pemodal.filter(p=>p.jenis==='barang').reduce((s,p)=>s+p.nilai,0);
+  const orang=new Set(pemodal.map(p=>p.nama.toLowerCase())).size;
+  document.getElementById('m-sum').innerHTML=
+   `<div><small>Jumlah pemodal</small><b>${orang} orang</b></div><div><small>Modal uang tunai</small><b>${rp(uang)}</b></div><div><small>Modal barang (perkiraan)</small><b>${rp(brg)}</b></div><div class="red"><small>Total modal</small><b>${rp(uang+brg)}</b></div>`;
+  document.getElementById('m-body').innerHTML=pemodal.length?pemodal.map(p=>`<tr>
+   <td>${p.tgl}</td><td><strong>${esc(p.nama)}</strong>${p.cat?`<br><small style="color:var(--muted)">${esc(p.cat)}</small>`:''}</td>
+   <td><span class="st ${p.jenis==='uang'?'lunas':'belum'}" style="cursor:default">${p.jenis==='uang'?'Uang':'Barang'}</span></td>
+   <td>${esc(p.rinci)}</td><td class="right"><b>${rp(p.nilai)}</b></td>
+   <td><button class="btn small gold" onclick="editRec('pemodal',${p.id})" aria-label="Edit" title="Edit"><i class="fa-solid fa-pen"></i></button> <button class="btn small gold" onclick="cetakNota('pemodal',${p.id})" aria-label="Nota" title="Cetak nota"><i class="fa-solid fa-receipt"></i></button> <button class="btn small" onclick="delPemodal(${p.id})" aria-label="Hapus"><i class="fa-solid fa-trash"></i></button></td></tr>`).join('')
+   :`<tr><td colspan="6" class="empty">Belum ada pemodal. Isi formulir di atas untuk mencatat modal pertama.</td></tr>`;
+}
+
+/* ===== STATE BARU ===== */
+let biaya=LS('biaya_mlv',[]),tanam=LS('tanam_mlv',[]),stok=LS('stok_mlv',[]),bagi=LS('bagi_mlv',{pct:{},kembali:false});
+const dayOf=t=>{const a=new Date(t+'T00:00:00'),b=new Date();b.setHours(0,0,0,0);return Math.floor((b-a)/864e5)};
+function hitungLaba(){
+  const pend=sum(panen,p=>p.kg*p.harga),bia=sum(biaya,b=>b.nominal),kas=sum(kasbon,k=>k.qty*k.harga),modal=sum(pemodal,p=>p.nilai);
+  return {pend,bia,kas,modal,laba:pend-bia-kas,kasBelum:sum(kasbon,sisaKas)};
+}
+function refreshDerived(){renderLaba();renderStok();renderHome();renderGrafik()}
+['renderKasbon','renderPanen','renderPemodal'].forEach(n=>{const f=window[n];window[n]=function(){f();refreshDerived()}});
+
+/* Biaya */
+function addBiaya(){
+  const n=parseFloat($('b-nom').value);
+  if(!(n>0)){alert('Isi nominal biaya lebih dari 0.');return}
+  biaya.unshift({id:Date.now(),tgl:$('b-tgl').value||new Date().toISOString().slice(0,10),kat:$('b-kat').value,ket:$('b-ket').value.trim(),nominal:n});
+  SV('biaya_mlv',biaya);$('b-nom').value='';$('b-ket').value='';renderBiaya();refreshDerived();
+}
+function delBiaya(id){if(confirm('Hapus catatan biaya ini?')){biaya=biaya.filter(x=>x.id!==id);SV('biaya_mlv',biaya);renderBiaya();refreshDerived()}}
+function renderBiaya(){
+  const t=sum(biaya,b=>b.nominal);
+  $('b-sum').innerHTML=`<div><small>Jumlah catatan</small><b>${biaya.length}</b></div><div class="red"><small>Total biaya</small><b>${rp(t)}</b></div>`;
+  $('b-body').innerHTML=biaya.length?biaya.map(b=>`<tr><td>${b.tgl}</td><td><strong>${esc(b.kat)}</strong></td><td>${esc(b.ket)}</td><td class="right"><b>${rp(b.nominal)}</b></td><td><button class="btn small gold" onclick="editRec('biaya',${b.id})" aria-label="Edit" title="Edit"><i class="fa-solid fa-pen"></i></button> <button class="btn small" onclick="delBiaya(${b.id})" aria-label="Hapus"><i class="fa-solid fa-trash"></i></button></td></tr>`).join(''):`<tr><td colspan="5" class="empty">Belum ada biaya tercatat.</td></tr>`;
+}
+
+/* Laba & bagi hasil */
+function setPct(k,v){bagi.pct[k]=Math.max(0,parseFloat(v)||0);SV('bagi_mlv',bagi);renderLaba();renderHome()}
+function setKembali(v){bagi.kembali=v;SV('bagi_mlv',bagi);renderLaba()}
+function renderLaba(){
+  const h=hitungLaba();
+  $('l-sum').innerHTML=`<div><small>Pendapatan panen</small><b>${rp(h.pend)}</b></div><div><small>Biaya kebun</small><b>${rp(h.bia)}</b></div><div><small>Kasbon saprodi (total)</small><b>${rp(h.kas)}</b></div><div class="red"><small>${h.laba<0?'RUGI':'Laba bersih'}</small><b class="${h.laba<0?'neg':''}">${rp(h.laba)}</b></div>`;
+  $('l-kembali').checked=!!bagi.kembali;
+  const base=h.laba-(bagi.kembali?h.modal:0),names={};
+  pemodal.forEach(p=>{const k=p.nama.trim().toLowerCase();names[k]=names[k]||{nama:p.nama,modal:0};names[k].modal+=p.nilai});
+  const list=Object.entries(names);let tot=0;
+  const rows=list.map(([k,o])=>{const pc=bagi.pct[k]||0;tot+=pc;const bag=base*pc/100;return `<tr><td><strong>${esc(o.nama)}</strong></td><td class="right">${rp(o.modal)}</td><td class="right"><input class="pct" type="number" min="0" max="100" step="any" value="${pc}" onchange="setPct('${esc(k).replace(/'/g,'')}',this.value)" aria-label="Persen ${esc(o.nama)}"></td><td class="right ${bag<0?'neg':''}">${rp(bag)}</td><td class="right"><b>${rp(bag+(bagi.kembali?o.modal:0))}</b></td></tr>`}).join('');
+  const sisa=100-tot,bp=base*sisa/100;
+  $('l-body').innerHTML=rows+`<tr><td><strong>Petani</strong></td><td class="right">-</td><td class="right">${sisa}%</td><td class="right ${bp<0?'neg':''}">${rp(bp)}</td><td class="right"><b>${rp(bp)}</b></td></tr>`;
+  $('l-warn').innerHTML=(tot>100?'<div class="note"><h4>Persentase melebihi 100%</h4>Total persen pemodal harus 100% atau kurang.</div>':'')+(base<0?'<div class="note"><h4>Kondisi rugi</h4>Angka negatif berarti kerugian yang ditanggung sesuai persen masing-masing.</div>':'')+(list.length?'':'<p class="empty">Belum ada pemodal. Tambahkan di bar Nama Pemodal.</p>');
+}
+
+/* Jadwal */
+function addTanam(){
+  if(!$('j-tgl').value){alert('Pilih tanggal tanam.');return}
+  tanam.unshift({id:Date.now(),crop:$('j-tan').value,tgl:$('j-tgl').value,lahan:$('j-lahan').value.trim()});
+  SV('tanam_mlv',tanam);$('j-lahan').value='';renderJadwal();renderHome();
+}
+function delTanam(id){if(confirm('Hapus jadwal ini?')){tanam=tanam.filter(x=>x.id!==id);SV('tanam_mlv',tanam);renderJadwal();renderHome()}}
+function nextOf(t){const h=dayOf(t.tgl),m=(MILE[t.crop]||[]).filter(x=>x[0]>=h);return {h,next:m}}
+function stat(d){return d===0?'<span class="chip red">HARI INI</span>':`<span class="chip">${d} hari lagi</span>`}
+function renderJadwal(){
+  $('j-list').innerHTML=tanam.length?tanam.map(t=>{const c=CROPS.find(x=>x.id===t.crop),o=nextOf(t);
+   return `<div class="jd-card"><h4><span><i class="fa-solid fa-${c.icon}"></i> ${c.name}</span><span class="chip">${o.h<0?'belum tanam':o.h+' HST'}</span></h4><small>Tanam ${t.tgl}${t.lahan?' · '+esc(t.lahan):''}</small>
+   ${o.next.length?o.next.slice(0,2).map(n=>`<div class="jd-step">${stat(n[0]-o.h)} <strong>HST ${n[0]}</strong><br>${n[1]}</div>`).join(''):'<div class="jd-step">Semua jadwal pupuk selesai. Periksa umur panen.</div>'}
+   <button class="btn small gold" style="margin-top:.6rem" onclick="editRec('tanam',${t.id})" aria-label="Edit" title="Edit"><i class="fa-solid fa-pen"></i></button> <button class="btn small" style="margin-top:.6rem" onclick="delTanam(${t.id})"><i class="fa-solid fa-trash"></i></button></div>`}).join(''):'<p class="empty">Belum ada tanaman. Isi formulir di atas.</p>';
+}
+
+/* Stok */
+function stokRows(){
+  const m={},key=n=>n.trim().toLowerCase();
+  stok.forEach(e=>{const k=key(e.barang);m[k]=m[k]||{nama:e.barang,masuk:0,pakai:0,kas:0};e.jenis==='masuk'?m[k].masuk+=e.qty:m[k].pakai+=e.qty});
+  kasbon.forEach(k=>{const x=m[key(k.barang)];if(x)x.kas+=k.qty});
+  return Object.values(m).map(x=>({...x,sisa:x.masuk-x.pakai-x.kas}));
+}
+function addStok(){
+  const b=$('s-brg').value.trim(),q=parseFloat($('s-qty').value);
+  if(!b||!(q>0)){alert('Isi nama barang dan jumlah lebih dari 0.');return}
+  stok.unshift({id:Date.now(),tgl:$('s-tgl').value||new Date().toISOString().slice(0,10),barang:b,jenis:$('s-jenis').value,qty:q});
+  SV('stok_mlv',stok);$('s-brg').value='';$('s-qty').value='';renderStok();renderHome();
+}
+function delStok(id){if(confirm('Hapus catatan stok ini?')){stok=stok.filter(x=>x.id!==id);SV('stok_mlv',stok);renderStok();renderHome()}}
+function renderStok(){
+  const r=stokRows();
+  $('s-body').innerHTML=r.length?r.map(x=>`<tr class="${x.sisa<=5?'low':''}"><td><strong>${esc(x.nama)}</strong></td><td class="right">${x.masuk}</td><td class="right">${x.pakai}</td><td class="right">${x.kas}</td><td class="right"><b>${x.sisa}</b></td><td><span class="st ${x.sisa<=5?'belum':'lunas'}" style="cursor:default">${x.sisa<=0?'Habis':x.sisa<=5?'Menipis':'Aman'}</span></td></tr>`).join(''):'<tr><td colspan="6" class="empty">Belum ada stok. Catat stok masuk di atas.</td></tr>';
+  $('s-log').innerHTML=stok.length?stok.map(x=>`<tr><td>${x.tgl}</td><td>${esc(x.barang)}</td><td>${x.jenis==='masuk'?'Masuk':'Dipakai sendiri'}</td><td class="right">${x.qty}</td><td><button class="btn small gold" onclick="editRec('stok',${x.id})" aria-label="Edit" title="Edit"><i class="fa-solid fa-pen"></i></button> <button class="btn small" onclick="delStok(${x.id})" aria-label="Hapus"><i class="fa-solid fa-trash"></i></button></td></tr>`).join(''):'<tr><td colspan="5" class="empty">Belum ada riwayat.</td></tr>';
+}
+
+/* Beranda */
+function renderHome(){
+  const h=hitungLaba(),kg=sum(panen,p=>p.kg),low=stokRows().filter(x=>x.sisa<=5);
+  $('h-sum').innerHTML=`<div><small>Total panen</small><b>${kg.toLocaleString('id-ID')} kg</b></div><div><small>Pendapatan</small><b>${rp(h.pend)}</b></div><div class="red"><small>${h.laba<0?'Rugi':'Laba bersih'}</small><b class="${h.laba<0?'neg':''}">${rp(h.laba)}</b></div><div class="red"><small>Kasbon belum lunas</small><b>${rp(h.kasBelum)}</b></div><div><small>Total modal</small><b>${rp(h.modal)}</b></div>`;
+  const j=tanam.map(t=>({t,o:nextOf(t)})).filter(x=>x.o.next.length).sort((a,b)=>(a.o.next[0][0]-a.o.h)-(b.o.next[0][0]-b.o.h)).slice(0,4);
+  $('h-jadwal').innerHTML=j.length?j.map(x=>{const c=CROPS.find(k=>k.id===x.t.crop),n=x.o.next[0];return `<div class="jd-card"><h4><span><i class="fa-solid fa-${c.icon}"></i> ${c.name}</span><span class="chip">${x.o.h} HST</span></h4><small>${x.t.lahan?esc(x.t.lahan):'Tanam '+x.t.tgl}</small><div class="jd-step">${stat(n[0]-x.o.h)} <strong>HST ${n[0]}</strong><br>${n[1]}</div></div>`}).join(''):'<p class="empty">Belum ada jadwal. Tambahkan di bar Jadwal Tanam.</p>';
+  $('h-stok').innerHTML=low.length?low.map(x=>`<span class="chip red" style="margin:.15rem">${esc(x.nama)}: sisa ${x.sisa}</span>`).join(''):'<p class="hint">Tidak ada stok yang menipis.</p>';
+}
+
+/* Cadangan, WA, PIN */
+const KEYS=['kasbon_saprodi_mlv','panen_mlv','pemodal_mlv','biaya_mlv','tanam_mlv','stok_mlv','bagi_mlv'];
+function exportData(){
+  const o={app:'mlv-dashboard',tgl:new Date().toISOString(),data:{}};KEYS.forEach(k=>{o.data[k]=LS(k,null)});
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(o)],{type:'application/json'}));
+  a.download='cadangan-tani-'+new Date().toISOString().slice(0,10)+'.json';a.click();
+}
+function importData(inp){
+  const f=inp.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const o=JSON.parse(r.result);if(o.app!=='mlv-dashboard')throw 0;if(!confirm('Timpa semua data saat ini dengan file cadangan?'))return;
+   KEYS.forEach(k=>{o.data[k]!=null?SV(k,o.data[k]):localStorage.removeItem(k)});location.reload()}catch(e){alert('File cadangan tidak valid.')}};
+  r.readAsText(f);inp.value='';
+}
+function kirimWA(){
+  const h=hitungLaba(),kg=sum(panen,p=>p.kg);
+  const t=`*REKAP KEBUN* (${new Date().toLocaleDateString('id-ID')})\nPanen: ${kg} kg (${rp(h.pend)})\nBiaya: ${rp(h.bia)}\nKasbon saprodi: ${rp(h.kas)} (belum lunas ${rp(h.kasBelum)})\n${h.laba<0?'Rugi':'Laba bersih'}: ${rp(h.laba)}\nTotal modal pemodal: ${rp(h.modal)}\n\nby Baheula Tani Nusantara (MLv)`;
+  window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank');
+}
+function hapusSemua(){if(confirm('Hapus SEMUA data di perangkat ini? Unduh cadangan dulu bila perlu.')&&confirm('Yakin? Tindakan ini tidak bisa dibatalkan.')){KEYS.forEach(k=>localStorage.removeItem(k));location.reload()}}
+async function hashPin(p){
+  const str='mlv|'+p;
+  try{const h=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+  catch(e){let x=0;for(const c of str)x=(x*31+c.charCodeAt(0))|0;return 'f'+x}
+}
+function pinStatus(){$('pin-status').textContent=localStorage.getItem('pin_mlv')?'PIN aktif. Dashboard meminta PIN setiap dibuka.':'PIN belum diatur.'}
+async function setPin(){
+  const a=$('pin1').value,b=$('pin2').value;
+  if(!/^\d{4,8}$/.test(a)){alert('PIN harus 4-8 angka.');return}
+  if(a!==b){alert('Kedua PIN tidak sama.');return}
+  localStorage.setItem('pin_mlv',await hashPin(a));$('pin1').value='';$('pin2').value='';pinStatus();alert('PIN tersimpan.');
+}
+function clearPin(){if(confirm('Hapus PIN?')){localStorage.removeItem('pin_mlv');sessionStorage.removeItem('unlock_mlv');pinStatus()}}
+function lockNow(){if(!localStorage.getItem('pin_mlv')){alert('Atur PIN terlebih dahulu.');return}sessionStorage.removeItem('unlock_mlv');showLock()}
+function showLock(){$('lock').classList.add('show');$('lock-pin').value='';$('lock-err').textContent='';setTimeout(()=>$('lock-pin').focus(),50)}
+async function tryUnlock(){
+  if(await hashPin($('lock-pin').value)===localStorage.getItem('pin_mlv')){sessionStorage.setItem('unlock_mlv','1');$('lock').classList.remove('show')}
+  else{$('lock-err').textContent='PIN salah, coba lagi.';$('lock-pin').value=''}
+}
+$('lock-pin').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock()});
+
+/* ===== v4: MODAL, EDIT, FILTER, NOTA, GRAFIK, CUACA, PWA ===== */
+let modalSave=null;
+function openModal(title,fields,onSave){
+  $('md-title').textContent=title;$('md-extra').innerHTML='';
+  $('md-form').innerHTML=fields.map(f=>`<div><label>${f[1]}</label>`+(f[2]==='sel'?`<select data-k="${f[0]}">${f[4].map(o=>`<option value="${esc(o[0])}" ${String(o[0])===String(f[3])?'selected':''}>${esc(o[1])}</option>`).join('')}</select>`:`<input data-k="${f[0]}" type="${f[2]}" ${f[2]==='number'?'step="any" min="0"':''} value="${esc(f[3]==null?'':f[3])}">`)+'</div>').join('');
+  modalSave=()=>{const o={};$('md-form').querySelectorAll('[data-k]').forEach(el=>o[el.dataset.k]=el.value);return onSave(o)};
+  $('modal').classList.add('show');
+}
+function closeModal(){$('modal').classList.remove('show')}
+function saveModal(){if(modalSave&&modalSave()!==false)closeModal()}
+const KAT=['Bibit/Benih','Upah','Solar/BBM','Transport','Alat','Pupuk/Obat (tunai)','Lain-lain'].map(x=>[x,x]);
+const SCHEMA={
+ kasbon:{arr:()=>kasbon,key:'kasbon_saprodi_mlv',after:()=>renderKasbon(),f:[['nama','Nama petani','text'],['tgl','Tanggal','date'],['barang','Barang','text'],['qty','Jumlah','number'],['harga','Harga satuan (Rp)','number'],['tempo','Jatuh tempo','date'],['cat','Catatan','text']]},
+ panen:{arr:()=>panen,key:'panen_mlv',after:()=>renderPanen(),f:[['tgl','Tanggal','date'],['tan','Tanaman','sel',CROPS.map(c=>[c.name,c.name])],['kg','Hasil (kg)','number'],['harga','Harga per kg (Rp)','number'],['cat','Catatan','text']]},
+ pemodal:{arr:()=>pemodal,key:'pemodal_mlv',after:()=>renderPemodal(),f:[['nama','Nama pemodal','text'],['tgl','Tanggal','date'],['rinci','Rincian','text'],['nilai','Nilai (Rp)','number'],['cat','Catatan','text']]},
+ biaya:{arr:()=>biaya,key:'biaya_mlv',after:()=>{renderBiaya();refreshDerived()},f:[['tgl','Tanggal','date'],['kat','Kategori','sel',KAT],['ket','Keterangan','text'],['nominal','Nominal (Rp)','number']]},
+ tanam:{arr:()=>tanam,key:'tanam_mlv',after:()=>{renderJadwal();renderHome()},f:[['crop','Tanaman','sel',CROPS.map(c=>[c.id,c.name])],['tgl','Tanggal tanam','date'],['lahan','Lahan / blok','text']]},
+ stok:{arr:()=>stok,key:'stok_mlv',after:()=>{renderStok();renderHome()},f:[['tgl','Tanggal','date'],['barang','Barang','text'],['jenis','Jenis','sel',[['masuk','Stok masuk'],['pakai','Dipakai sendiri']]],['qty','Jumlah','number']]}
+};
+function editRec(c,id){
+  const S=SCHEMA[c],r=S.arr().find(x=>x.id===id);if(!r)return;
+  openModal('Edit catatan',S.f.map(f=>[f[0],f[1],f[2],r[f[0]],f[3]]),o=>{
+    const nv={};
+    for(const f of S.f){let v=o[f[0]];if(f[2]==='number'){v=parseFloat(v);if(!(v>=0)){alert('Isi angka yang valid pada '+f[1]);return false}}else if(f[2]==='text'&&f[0]!=='cat'&&f[0]!=='lahan'&&f[0]!=='ket'&&!String(v).trim()){alert('Kolom '+f[1]+' tidak boleh kosong');return false}nv[f[0]]=v}
+    Object.assign(r,nv);SV(S.key,S.arr());S.after();
+  });
+}
+function applyFilter(id){
+  const bar=document.querySelector(`.fbar[data-for="${id}"]`);if(!bar)return;
+  const q=bar.querySelector('.fq').value.trim().toLowerCase(),a=bar.querySelector('.f1').value,b=bar.querySelector('.f2').value;
+  $(id).querySelectorAll('tr').forEach(tr=>{if(tr.children.length<3)return;const d=tr.children[0].textContent.trim();
+    let ok=true;if(q&&!tr.textContent.toLowerCase().includes(q))ok=false;if(a&&d<a)ok=false;if(b&&d>b)ok=false;tr.style.display=ok?'':'none'});
+}
+['k-body','p-body','m-body','b-body','s-log'].forEach(id=>new MutationObserver(()=>applyFilter(id)).observe($(id),{childList:true}));
+
+/* Nota */
+function cetakNota(type,id){
+  const row=(a,b)=>`<tr><td>${a}</td><td>${b}</td></tr>`;let h='';
+  if(type==='kasbon'){
+    const k=kasbon.find(x=>x.id===id);if(!k)return;
+    h=`<h1>NOTA KASBON SAPRODI</h1><p class="no">No. K-${String(id).slice(-6)} &middot; ${k.tgl}</p><table>${row('Nama petani',esc(k.nama))}${row('Barang',esc(k.barang))}${row('Jumlah',k.qty)}${row('Harga satuan',rp(k.harga))}${row('Total kasbon',rp(totKas(k)))}${row('Sudah dibayar',rp(bayarKas(k)))}${row('Sisa utang','<b>'+rp(sisaKas(k))+'</b>')}${k.tempo?row('Jatuh tempo',k.tempo):''}${k.cat?row('Catatan',esc(k.cat)):''}</table>
+    <div class="sig"><div>Penerima<br><br><br><br>( ${esc(k.nama)} )</div><div>Pemberi<br><br><br><br>( ................ )</div></div>`;
+  }else{
+    const p=pemodal.find(x=>x.id===id);if(!p)return;
+    h=`<h1>BUKTI SETORAN MODAL</h1><p class="no">No. M-${String(id).slice(-6)} &middot; ${p.tgl}</p><table>${row('Nama pemodal',esc(p.nama))}${row('Bentuk modal',p.jenis==='uang'?'Uang tunai':'Barang')}${row('Rincian',esc(p.rinci))}${row(p.jenis==='uang'?'Jumlah':'Perkiraan nilai','<b>'+rp(p.nilai)+'</b>')}${p.cat?row('Kesepakatan',esc(p.cat)):''}</table>
+    <div class="sig"><div>Pemodal<br><br><br><br>( ${esc(p.nama)} )</div><div>Penerima<br><br><br><br>( ................ )</div></div>`;
+  }
+  $('nota').innerHTML=h+'<p class="by">by Baheula Tani Nusantara (MLv)</p>';
+  document.body.classList.add('nota-mode');window.print();
+}
+window.addEventListener('afterprint',()=>document.body.classList.remove('nota-mode'));
+
+/* Grafik */
+function renderGrafik(){
+  const bars=(rows,cls)=>{const mx=Math.max(1,...rows.map(r=>r[1]));return rows.length?rows.map(r=>`<div class="gb"><span>${esc(r[0])}</span><div class="gt"><div class="gf ${cls}" style="width:${r[1]/mx*100}%"></div></div><b>${r[2]}</b></div>`).join(''):'<p class="empty">Belum ada data.</p>'};
+  const pg={};panen.forEach(p=>pg[p.tan]=(pg[p.tan]||0)+p.kg);
+  $('g-panen').innerHTML=bars(Object.entries(pg).sort((a,b)=>b[1]-a[1]).map(([n,v])=>[n,v,v.toLocaleString('id-ID')+' kg']),'');
+  const bg={};biaya.forEach(b=>bg[b.kat]=(bg[b.kat]||0)+b.nominal);const ks=sum(kasbon,totKas);if(ks)bg['Kasbon saprodi']=ks;
+  $('g-biaya').innerHTML=bars(Object.entries(bg).sort((a,b)=>b[1]-a[1]).map(([n,v])=>[n,v,rp(v)]),'r');
+  const m={},mm=k=>m[k]=m[k]||{i:0,o:0};
+  panen.forEach(p=>mm(p.tgl.slice(0,7)).i+=p.kg*p.harga);biaya.forEach(b=>mm(b.tgl.slice(0,7)).o+=b.nominal);kasbon.forEach(k=>mm(k.tgl.slice(0,7)).o+=totKas(k));
+  const ks2=Object.keys(m).sort(),mx=Math.max(1,...ks2.map(k=>Math.max(m[k].i,m[k].o)));
+  $('g-bulan').innerHTML=ks2.length?ks2.map(k=>{const v=m[k],net=v.i-v.o,lb=new Date(k+'-01T00:00:00').toLocaleDateString('id-ID',{month:'short',year:'numeric'});
+    return `<div class="gm"><span>${lb}</span><span class="${net<0?'neg':''}">${net<0?'Rugi ':'Laba '}${rp(Math.abs(net))}</span></div><div class="gb"><span>Pendapatan</span><div class="gt"><div class="gf" style="width:${v.i/mx*100}%"></div></div><b>${rp(v.i)}</b></div><div class="gb"><span>Pengeluaran</span><div class="gt"><div class="gf r" style="width:${v.o/mx*100}%"></div></div><b>${rp(v.o)}</b></div>`}).join(''):'<p class="empty">Belum ada data.</p>';
+}
+
+/* Cuaca (Open-Meteo, butuh internet) */
+const KOTA={'Palangka Raya':[-2.21,113.92],'Sampit':[-2.54,112.95],'Pangkalan Bun':[-2.68,111.63],'Kuala Kapuas':[-3.0,114.39],'Muara Teweh':[-0.95,114.89],'Kasongan':[-1.89,113.4]};
+$('c-kota').innerHTML=Object.keys(KOTA).map(k=>`<option>${k}</option>`).join('')+'<option value="gps">Lokasi saya</option>';
+$('c-kota').value=LS('kota_mlv','Palangka Raya');
+const wIcon=c=>c===0?'sun':c<=3?'cloud-sun':(c===45||c===48)?'smog':c>=95?'cloud-bolt':c>=51?'cloud-rain':'cloud';
+function drawCuaca(d,cached){
+  const lb=t=>new Date(t+'T00:00:00').toLocaleDateString('id-ID',{weekday:'short',day:'numeric'});
+  $('h-cuaca').innerHTML=d.time.map((t,i)=>{const rain=d.precipitation_sum[i]>=5||d.precipitation_probability_max[i]>=60;
+    return `<div class="cw ${rain?'rain':''}"><b>${lb(t)}</b><i class="fa-solid fa-${wIcon(d.weathercode[i])}"></i><div>${Math.round(d.temperature_2m_min[i])}&deg;-${Math.round(d.temperature_2m_max[i])}&deg;C</div><div>${d.precipitation_sum[i]} mm</div><div>${d.precipitation_probability_max[i]}%</div></div>`}).join('');
+  const best=d.time.slice(0,4).findIndex((t,i)=>d.precipitation_probability_max[i]<40&&d.precipitation_sum[i]<5);
+  let tip=best===0?'Hari ini cuaca cukup kering, cocok untuk pupuk kocor atau semprot.':best>0?`Hari terbaik untuk memupuk: <b>${lb(d.time[best])}</b> (peluang hujan rendah).`:'Hujan sering diperkirakan. Pilih jeda hujan dan hindari menyemprot sebelum hujan agar pupuk tidak tercuci.';
+  if(d.precipitation_sum[0]>=10)tip='Hujan deras diperkirakan hari ini. Tunda pemupukan agar tidak hanyut atau tercuci. '+tip;
+  $('c-tip').innerHTML=`<div class="note" style="margin-top:0"><h4><i class="fa-solid fa-cloud-sun-rain"></i> Saran pemupukan</h4>${tip}${cached?'<br><small>Data tersimpan terakhir (sedang offline).</small>':''}</div>`;
+}
+async function loadCuaca(){
+  const sel=$('c-kota').value;SV('kota_mlv',sel);
+  try{
+    let pos=KOTA[sel];
+    if(sel==='gps')pos=await new Promise((ok,no)=>navigator.geolocation.getCurrentPosition(p=>ok([p.coords.latitude,p.coords.longitude]),no,{timeout:8000}));
+    const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${pos[0]}&longitude=${pos[1]}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=Asia%2FJakarta&forecast_days=7`);
+    if(!r.ok)throw 0;const j=await r.json();SV('cuaca_mlv',{sel,d:j.daily});drawCuaca(j.daily,false);
+  }catch(e){
+    const c=LS('cuaca_mlv',null);
+    if(c){drawCuaca(c.d,true)}else{$('h-cuaca').innerHTML='<p class="hint">Cuaca butuh internet atau izin lokasi. Coba lagi saat online.</p>';$('c-tip').innerHTML=''}
+  }
+}
+
+/* PWA */
+let dip=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;$('pwa-btn').style.display='inline-block'});
+function pasangApp(){if(dip){dip.prompt();dip=null;$('pwa-btn').style.display='none'}}
+(function(){try{
+  const ic=(n,d)=>({src:'data:image/png;base64,'+d,sizes:n+'x'+n,type:'image/png',purpose:'any maskable'});
+  const m={name:'Dashboard Tani - Baheula Tani Nusantara (MLv)',short_name:'Tani MLv',start_url:location.href.split('#')[0],display:'standalone',background_color:'#050505',theme_color:'#050505',icons:[ic(192,'iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmE5MTY2YWI4LWFhMmYtNDRhMS1hM2ZhLWY3YTk1ZjJhMWNhOAAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNo4nTkYX4Ou+hbpCCcYM76jwAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6YmMyZDkyZWQtYjI0Yi00NzAwLWFmYjMtZTFhN2VjMDc5NzJmbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaKZSwqq6NNrnLCrf3UXJbloAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIIeIBKP56dRI7zRyPNWtJr+HaDUXYEZnW/DpidLeUP/XpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2ga2JeqLmd929yJZ3TR0tuRAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggVMCbei9iOGObn9jEVPCRyJq3nTQ5wpJ89DQnM8EcGSJkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTphOTE2NmFiOC1hYTJmLTQ0YTEtYTNmYS1mN2E5NWYyYTFjYTgvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDozMmZhNjY3Yi00MDc3LTQyNjUtYjQ2YS1lOTYwYTc5MDEwYzRyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggh4gEo/np1EjvNHI81a0mv4doNRdgRmdb8OmJ0t5Q/9eiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIJtlCoJOy595KDqRRpc+BhnkXGAf2l33eAgTk4ti/CBgomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIKEvnv7RRvhBDYYsYBJLypm3yGrLHw8gNjvKvqTZEpkUdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2WEB8dnMpEf7D2bDK78fmr/R9PUh527R7mVj4dcG16sTLkOTbY6xC4cOUjX8AI5vB8G+ul+VgTLXvuO/rskaPPwS7oIQrGwAADLZJREFUeJztnWlsFdcVx4/BD1IMLQFMU6CBIEIoCQWTlITFJcFNWVqaLxWkC1EqVVAlJahNS5RKUVc1ClIr0Q8tThCKgCxE/VCpi7sIsMHYDm0J1GADRShNDA04YUsDYvF7/XClyXjmvfHMvefcbc5PfPA8vzdzZ+bH/5xZ3riqUCgAw8gyyPQAGLdhgRglWCBGCRaIUYIFYpRggRglWCBGCRaIUYIFYpRggRglWCBGCRaIUYIFYpRggRglqk0PwAreeG22xKfqVhxAH4lzVOXwfiA5XdKQQ6VyIRCdMcnkwSefBTLlTRyPTfJNIDlpnl/5psSnVu+YJPEpz2T
